@@ -1,76 +1,106 @@
-# LPP — Labs and Exercises (Haskell)
+# LPP — Laboratorio di Programmazione e Paradigmi (Haskell)
 
-This repository contains the comprehensive code produced for the LPP course (Laboratorio di Programmazione e Paradigmi or similar), organized by lab. The code is written in Haskell and intended for learning and practicing functional programming concepts.
+Repository con gli esercizi svolti per il corso di LPP, organizzati per laboratorio. Il codice è in Haskell e serve a praticare concetti di programmazione funzionale.
 
-## Repository structure
+## Struttura del repository
 
 ```
+README.md
 LAB1/
-  EX1_LAB1.hs        -- Exercise 1 source
-  EX1_LAB1.hi/.o     -- GHC build artifacts (ignored by Git after this commit)
-  EX2_LAB1.hs        -- Exercise 2 source
-  EX2_LAB1.hi/.o     -- GHC build artifacts (ignored by Git after this commit)
-  EX3_LAB1.hs        -- Exercise 3 source
+  EX1_LAB1
+  EX1_LAB1.hi
+  EX1_LAB1.hs
+  EX2_LAB1
+  EX2_LAB1.hi
+  EX2_LAB1.hs
+  EX3_LAB1.hs
 LAB2/
-  (placeholder)
+  EX1_LAB2.hs
+  EX2_LAB2.hs
+LAB3/
+  EX1_LAB3.hs
+  EX2_LAB3.hs
 ```
 
-Notes:
-- Files without extensions in `LAB1/` like `EX1_LAB1` or `EX2_LAB1` are compiled executables produced by `ghc`.
-- `LAB2/` currently has no files committed yet.
+Note:
+- I file senza estensione (es. `EX1_LAB1`, `EX2_LAB1`) sono eseguibili compilati prodotti da `ghc`.
+- I file `*.hi` (interface) e `*.o` (object) sono artefatti di build generati dal compilatore.
 
-## Prerequisites
+## Prerequisiti
 
-- Haskell toolchain (GHC and GHCi). Install via:
-  - GHCup (recommended): https://www.haskell.org/ghcup/
-  - Or system package manager (may be older versions)
+- Toolchain Haskell: GHC e GHCi. Installazione consigliata tramite GHCup:
+  - https://www.haskell.org/ghcup/
+  - Dopo l'installazione, verifica:
 
-## How to run
+    ```
+    ghc --version
+    ghci --version
+    ```
 
-You can use GHCi for quick interactive runs, or compile with GHC to produce executables.
+## Come eseguire gli esercizi
 
-### Option A: Run in GHCi (interactive)
+Puoi usare GHCi per esecuzioni interattive, `runghc` per eseguire direttamente un `.hs`, oppure compilare con `ghc` per ottenere un binario. I comandi seguenti funzionano su macOS con shell zsh.
 
-- Open an exercise in GHCi:
-  
-  ```
-  ghci LAB1/EX1_LAB1.hs
-  ```
-- Inside GHCi, evaluate functions, or run `main` if defined:
-  
-  ```
-  :reload   -- reload after edits
-  main      -- run main if present
-  :quit
-  ```
+### Opzione A — GHCi (interattivo)
 
-### Option B: Compile with GHC (executable)
+Apri un file in GHCi, ad esempio l'esercizio 1 del LAB3:
 
-- Build an exercise:
-  
-  ```
-  ghc LAB1/EX1_LAB1.hs -o LAB1/EX1_LAB1
-  ```
-- Run the produced binary:
-  
-  ```
-  ./LAB1/EX1_LAB1
-  ```
+```
+ghci LAB3/EX1_LAB3.hs
+```
 
-### Cleaning build artifacts
+Dentro GHCi puoi valutare funzioni o eseguire `main` se definito:
 
-To remove object/interface files produced by GHC:
+```
+:reload   -- ricarica dopo modifiche
+main      -- esegue main (se presente)
+:quit
+```
+
+### Opzione B — runghc (senza compilare a binario)
+
+Esegue direttamente il sorgente:
+
+```
+runghc LAB2/EX1_LAB2.hs
+```
+
+### Opzione C — Compilare con GHC (binario)
+
+Compila e produce un eseguibile nella stessa cartella dell'esercizio:
+
+```
+ghc LAB1/EX2_LAB1.hs -o LAB1/EX2_LAB1
+./LAB1/EX2_LAB1
+```
+
+Suggerimenti utili durante la compilazione:
+- Aggiungi avvisi utili: `ghc -Wall LABx/EXy_LABx.hs -o LABx/EXy_LABx`
+- Per ripulire gli artefatti della compilazione vedi la sezione seguente.
+
+## Pulizia degli artefatti di build
+
+Per rimuovere file `.o`, `.hi` e varianti generate dal compilatore:
 
 ```
 find . -type f \( -name "*.o" -o -name "*.hi" -o -name "*.dyn_o" -o -name "*.dyn_hi" \) -delete
 ```
 
-## Contributing / workflow
+Opzionale: puoi aggiungere queste estensioni a `.gitignore` per non tracciarle:
 
-- Keep exercises grouped under their corresponding `LABn/` folder.
-- Prefer small, focused commits per exercise or change.
-- Build artifacts are ignored by Git via `.gitignore`.
+```
+*.o
+*.hi
+*.dyn_o
+*.dyn_hi
+```
 
-## License
+## Convenzioni e organizzazione
 
-If required by your course or personal preference, add a license file (e.g., MIT). By default, this repository has no explicit license.
+- Mantieni gli esercizi nel corrispondente `LABn/` con nomi coerenti (`EXk_LABn.hs`).
+- Fai commit piccoli e mirati per ogni esercizio o cambiamento.
+- Se un esercizio ha un `main`, documenta rapidamente come si esegue nel file o in un commento in cima.
+
+## Licenza
+
+Se richiesto dal corso o per preferenza personale, aggiungi un file di licenza (es. MIT). Di default il repository non ha licenza esplicita.
