@@ -1,3 +1,7 @@
+-- LAB1 ex3
+-- Define the first eight Fibonacci numbers using only addition and previously defined values.
+-- This shows how to build complex expressions from simpler ones.
+
 f0 :: Int
 f0 = 0
 
@@ -21,3 +25,5 @@ f6 = f4 + f5
 
 f7 :: Int
 f7 = f5 + f6
+
+-- Remeber that in Haskell we define functions and values using equations and expressions ,compared to Python where we use assignment statements.

@@ -7,11 +7,7 @@ Repository con gli esercizi svolti per il corso di LPP, organizzati per laborato
 ```
 README.md
 LAB1/
-  EX1_LAB1
-  EX1_LAB1.hi
   EX1_LAB1.hs
-  EX2_LAB1
-  EX2_LAB1.hi
   EX2_LAB1.hs
   EX3_LAB1.hs
 LAB2/
@@ -20,11 +16,8 @@ LAB2/
 LAB3/
   EX1_LAB3.hs
   EX2_LAB3.hs
+...
 ```
-
-Note:
-- I file senza estensione (es. `EX1_LAB1`, `EX2_LAB1`) sono eseguibili compilati prodotti da `ghc`.
-- I file `*.hi` (interface) e `*.o` (object) sono artefatti di build generati dal compilatore.
 
 ## Prerequisiti
 
@@ -78,29 +71,12 @@ Suggerimenti utili durante la compilazione:
 - Aggiungi avvisi utili: `ghc -Wall LABx/EXy_LABx.hs -o LABx/EXy_LABx`
 - Per ripulire gli artefatti della compilazione vedi la sezione seguente.
 
-## Pulizia degli artefatti di build
-
-Per rimuovere file `.o`, `.hi` e varianti generate dal compilatore:
-
-```
-find . -type f \( -name "*.o" -o -name "*.hi" -o -name "*.dyn_o" -o -name "*.dyn_hi" \) -delete
-```
-
-Opzionale: puoi aggiungere queste estensioni a `.gitignore` per non tracciarle:
-
-```
-*.o
-*.hi
-*.dyn_o
-*.dyn_hi
-```
-
 ## Convenzioni e organizzazione
 
 - Mantieni gli esercizi nel corrispondente `LABn/` con nomi coerenti (`EXk_LABn.hs`).
 - Fai commit piccoli e mirati per ogni esercizio o cambiamento.
 - Se un esercizio ha un `main`, documenta rapidamente come si esegue nel file o in un commento in cima.
 
-## Licenza
+## Esempi Codice 
+> Il codice presenta commenti che spiegano la sintassi basandossi su concentti di Python3 , per favorire apprentimeto
 
-Se richiesto dal corso o per preferenza personale, aggiungi un file di licenza (es. MIT). Di default il repository non ha licenza esplicita.
