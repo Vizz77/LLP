@@ -21,3 +21,4 @@ inversioni_totali xs = sum [1 | (x:ys) <- tails xs, y <- ys, x > y]
     where
         tails [] = []
         tails l@(_:xs) = l : tails xs
+        

@@ -22,3 +22,5 @@ pari_comp :: [Int] -> [Int]
 pari_comp xs = [x | x <- xs, even x]
     where
         even n = n `mod` 2 == 0 
+
+
