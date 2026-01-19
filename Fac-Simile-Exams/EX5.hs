@@ -6,7 +6,6 @@ posizione_dispari_lib xs = map snd (filter (\(i, _) -> odd i) (zip [0..] xs))
     where 
         odd :: Int -> Bool
         odd x = x `mod` 2 /= 0
-
 posizione_dispari_ric :: [a] -> [a]
 -- CASO 1: Lista con almeno 2 elementi (primo e secondo)
 -- _ (underscore) è il primo elemento (Indice 0, PARI) -> LO BUTTIAMO
